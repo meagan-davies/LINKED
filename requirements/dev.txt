@@ -1,0 +1,12 @@
+
+ # read in production requirements
+-r prod.txt 
+
+# code formatter and style guide enforcement --> automatically formats to a consistent coding style
+black==19.10b0
+
+# annotate python code with type hints
+mypy==0.782
+
+# protect the input form from random scripts being inputted
+bleach==4.1.0

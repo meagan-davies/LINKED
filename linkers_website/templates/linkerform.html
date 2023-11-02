@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body class="masthead bg-primary">
+    <div class="container">
+        <center>
+        <!-- Submit Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase main-heading mb-0">Submit your Linker</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+
+        {% if submitted %} <!--if submitted is true-->
+            <h2>Your linker sequence was Submitted !!</h2>
+            <br/>
+            <h3>ID: {{ request.GET.id }}</h3>
+
+        {% else %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-floating mb-3">
+                {{ form1.as_p }}
+                {{ form2.as_p }}
+
+                             
+                </div>
+                <div class="btndiv">
+                    <button class="btn btn-primary btn-xl" id="sendbtn" type="submit">Send</button>
+                </div>
+                <!--
+                <input type="submit" value="Submit" class="btn btn-secondary">
+                -->
+            </form>
+
+
+        {% endif %}
+        </center>
+    </div>
+</body>
+    
+
+{% endblock %}
+

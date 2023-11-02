@@ -1,0 +1,203 @@
+<!-- Inherit contents of template-->
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+
+
+{% block content %}
+
+<header class="masthead bg-primary text-white text-center">
+
+    <div class="container d-flex align-items-center flex-column">
+
+        <!-- Masthead Avatar Image-->
+
+        <!-- Masthead Heading-->
+
+        <h1 class="masthead-heading text-uppercase mb-0 main-heading">WELCOME</h1>
+
+        <!-- Icon Divider-->
+
+        <div class="divider-custom divider-light">
+
+            <div class="divider-custom-line"></div>
+
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+
+            <div class="divider-custom-line"></div>
+
+        </div>
+
+        <!-- Masthead Subheading-->
+
+        <p class="masthead-subheading font-weight-light mb-0 secondary-text">The purpose of "Linked" is to help future iGEM teams - or anyone else who may find this useful - identify linkers that match the characteristics they require. We found current technologies to have poor interfaces and results that were unhelpful for our purposes, so we made our own! In this web app, we ask you to specify the characteristics you're looking for, and we will provide you with the top three linkers from our database that match those characteristics. With these linkers, we will provide detailed information on their hydrophobicity, flexibility, and past usage in fusion proteins. Happy Linking!</p>
+
+    </div>
+
+</header>
+
+
+{% include 'form.html' %}
+<header class="masthead bg-primary text-white text-center">
+
+    <div class="container d-flex align-items-center flex-column">
+
+        <!-- Masthead Avatar Image-->
+
+        <!-- Masthead Heading-->
+
+        <h1 class="masthead-heading text-uppercase mb-0 main-heading">Functions</h1>
+
+        <!-- Icon Divider-->
+
+        <div class="divider-custom divider-light">
+
+            <div class="divider-custom-line"></div>
+
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+
+            <div class="divider-custom-line"></div>
+
+        </div>
+
+   
+
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                </div>
+                <div class="my-3"></div>
+                <div class="col-lg-12">
+                    <h2 class="text secondary-heading" style="color: black;">Flexibility Calculator</h3>
+
+                    <div class="card" style="background-color: #b8d7f6">
+                        <div class="card-body">
+                          <p class="card-text" style="color: black;text-align: left;">Our flexibility calculator employs an online API tool known as DynaMine, which serves as a rapid predictor of protein backbone dynamics using only the sequence information as input. To put it simply, backbone dynamics help us understand the flexibility or rigidity of specific parts of a protein, all without the need for detailed 3D structural data. Our function takes a protein sequence and sends it to the API server, where it calculates the backbone dynamics of linker sequences.
+                        </p>
+                            <p class="card-text" style="color: black;text-align: left;"> 
+                                This capability offers a swift and straightforward initial assessment of protein characteristics, eliminating the need for extensive computational resources associated with molecular dynamics approaches. DynaMine predicts backbone flexibility at the residue level, presenting the data in the form of backbone N-H S<sup>2</sup> order parameter values. These values indicate the degree of restriction on the movement of atomic bond vectors. The algorithm's training is based on experimentally determined nuclear magnetic resonance (NMR) chemical shifts, allowing it to effectively distinguish between regions of varying structural organisation within proteins.
+                   
+                            </p>
+                            <p class="card-text" style="color: black;text-align: left;">
+                        
+The research team responsible for DynaMine's development has reported that this tool exhibits high performance and accuracy, comparable to the most advanced existing tools. For reference, S^2 parameters below 0.69 suggest flexibility, while values above 0.8 indicate rigidity. Values falling in between may be context-dependent, displaying characteristics of both rigidity and flexibility, depending on environmental conditions.
+
+                            </p>
+                            <p class="card-text" style="color: black;text-align: left;">
+                                We processed all the linker sequences with a number of amino acids greater or equal to five due to the length requirement of linkers. The linker sequences with amino acid less than five are determined to be rigid as literature stated that short linkers are usually rigid. 
+
+                            </p>
+
+                        </div>
+
+                    </div>
+    
+                </div>
+                <div class="my-3"></div>
+                <div class="col-lg-12">
+                    <h2 class="text secondary-heading" style="color: black;">Hydrophobicity Calculator</h3>
+
+                    <div class="card" style="background-color: #b8d7f6">
+                        <div class="card-body">
+                        <p class="card-text" style="color: black;text-align: left;">Hydrophobicity provides a measurement of the tendency of molecules to be soluble or repel in water. This value is significant in linker design as it provides insight into potential folding behaviour based on solubility. There are various scales that can be used to encompass the hydrophobicity of individual amino acids. For our hydrophobicity calculations we used two tables of values to provide a wider range of hydrophobicity calculations to better account for differences found through various scoring methods. 
+                        </p>
+
+                        <div class="row">
+                        <div class="col-md-6">
+                            <div style="text-align: center;">
+                                <img src="static\images\hydro_index.png" alt="hydro_index" style="max-width: 300px; max-height: 500px;">
+                                <figcaption style="color: darkgray; font-style: italic;">Figure 1: Hydrophicity Index for Each Amino Acid</figcaption>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="my-5"></div>
+                        <p class="card-text" style="color: black;text-align: left;"> 
+                            Figure 1 demonstrates the values for the hydrophobicity of each amino acid in both an acidic environment and in a neutral environment. These values were used to sort each amino acid in the linker into one of the following categories: very hydrophobic, hydrophobic, neutral or hydrophilic. In the calculation process the number of amino acids in each category is counted for both acidic and neutral. An average is then found and a percentage is then outputted as is shown in the following sample equation:
+                            </p>
+                            <div class="my-5"></div>
+                            <div style="text-align: center;">
+                                <img src="static\images\CodeCogsEqn (2).svg" alt="equation1" >
+                            </div>
+                        </div>
+
+                        </div>
+                       
+
+
+                        </div>
+
+                        <p class="card-text" style="color: black;text-align: left;"> 
+                        This value helps to provide the user an overview of the percentage of residues that fall in each hydrophobicity category providing insight into the overall hydrophobicity distribution. 
+                        </p>
+                        <p class="card-text" style="color: black;text-align: left;"> 
+                        To provide the user with a more intuitive and clear demonstration of the linker hydrophobicity we created a hydrophobicity distribution function to output a graph showing a colour-based distribution. The graph outputs each amino acid in the linker with a corresponding background colour according to hydrophobicity. In Figure 2 the legend of corresponding hydrophobicity index values to the mapped colour is shown.
+                        </p>
+                        <div style="text-align: center;">
+                            <img src="static\images\hydro_dist.png" alt="hydro_dist" style="max-width: 800px; max-height: 500px;">
+                            <figcaption style="color: darkgray; font-style: italic;">Figure 2: Hydrophicity Distribution for Different Environment</figcaption>
+                        </div>
+                        <p class="card-text" style="color: black;text-align: left;"> 
+                            The gradient from orange to white to blue demonstrates hydrophobic residues through to hydrophilic residues. This function serves the purpose of helping the user make more informed decisions as this distribution can demonstrate the amphiphilic nature of a linker and can potentially provide insight into folding behaviours.
+                        </p>
+                        <p class="card-text" style="color: black;text-align: left;">
+                            For the hydrophobicity calculations a secondary dataset was used called the Kyte-Doolittle hydropathy scale which is a dataset commonly used for the calculation of the Grand Average of Hydropathy (GRAVY). A GRAVY score is a method for determining the overall hydrophobicity of a peptide sequence. Therefore, this method was utilized to provide insight into the overall hydrophobicity of a sequence while also providing a method to score and sort the linkers in the database. In Figure 3 a table of the Kyte-Doolittle hydropathy scale is shown. 
+                        </p>
+
+                                    
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div style="text-align: center;">
+                                    <img src="static\images\table.png" alt="hydro_dist" style="max-width: 1000px; max-height: 400px;">
+                                    <figcaption style="color: darkgray; font-style: italic;">Figure 3: Kyte-Doolittle hydropathy Scale</figcaption>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="card-text" style="color: black;text-align: left;">
+                                    The GRAVY calculation involves determining the sum of the hydropathy values divided by the length. The equation is demonstrated as follows:
+                                    </p>
+                                <div class="my-5"></div>
+                                <div style="text-align: center;">
+                                    <img src="static\images\CodeCogsEqn (1).svg" alt="equation1" >
+                                </div>
+                                <div class="my-5"></div>
+                                <p class="card-text" style="color: black;text-align: left;">
+                                    If the GRAVY Score is positive this indicates an overall hydrophobic sequence and if the GRAVY Score is negative this indicates a hydrophilic sequence. 
+                                    </p>
+                            </div>
+    
+                        </div>
+
+
+
+
+
+               
+
+
+
+                        
+                
+
+
+                        
+
+
+
+    
+                                                
+                        </div>
+                      </div> 
+    
+                </div>
+</header>
+
+
+
+
+{% endblock %}

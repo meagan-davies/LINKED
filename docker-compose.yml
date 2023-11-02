@@ -1,0 +1,73 @@
+# create a service for running our python server
+
+# may need to change the version
+version: "3.8"
+
+# run all the files in our working directory for our docker image
+x-service-volumes: &service-volumes
+  - ./:/app/:rw,cached
+
+# environment variables --> name of the database, username, password
+x-database-variables: &database-variables
+  POSTGRES_DB: postgres
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+
+# app environment variables --> new set + database variables
+x-app-variables: &app-variables
+  <<: *database-variables
+  POSTGRES_HOST: postgres
+
+services:
+  # main container running website
+  website:
+    # main image
+    image: linkers_website:latest
+    # command for our service to run inside the image & specifying the port
+    command: python manage.py runserver 0.0.0.0:8000
+    # connect the volume we made an alias for
+    volumes: *service-volumes 
+    environment: *app-variables
+    depends_on:
+      - db_migrate
+    ports:
+      - "8000:8000"
+  # make migrations run before the image is created
+  db_migrate:
+    image: linkers_website:latest
+    command: python manage.py migrate
+    volumes: *service-volumes
+    environment: *app-variables
+    # ensure postgres starts after migrations
+    depends_on:
+      - postgres
+
+  postgres:
+    # pick up the latest version
+    image: postgres
+    # expose port postgres runs on
+    ports:
+      - "5432:5432"
+    # reference database variables
+    environment: *database-variables
+    volumes:
+    # any data in the image will get stored in this volume
+      - db-data:/var/lib/postgresql/data
+
+  #pgadmin:
+   # image: dpage/pgadmin4
+   # environment:
+    
+
+volumes:
+  db-data:
+
+
+    
+    
+
+
+
+
+
+

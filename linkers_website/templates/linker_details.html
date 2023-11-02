@@ -1,0 +1,97 @@
+<!-- Inherit contents of template-->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+
+    * {
+        overflow-x: hidden;
+    }
+
+    .details {
+        height: fit-content !important;
+    }
+
+    .container h1 b {
+        color: #b9cde7 !important;
+        font-size: 1.4rem !important;
+    }
+
+    .container h1 {
+        color: white !important;
+        font-size: 1.4rem !important;
+    }
+
+    .container p {
+        color: white !important;
+        font-size: 1.2rem !important;
+    }
+
+    .container img {
+        width: fit-content !important;
+        max-width: 70% !important;
+    }
+
+</style>
+
+<section class="masthead details bg-primary">
+            <!-- Linker Details Section-->
+            <div class="container">
+                <!-- Details Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">Linker Details</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Linker Details Section Content-->
+                <div class="row">
+                    <h1><b>Amino Acid Sequence:</b> {{ linker.aasequence }}</h1>
+
+                    <h1><b>ID:</b> {{ linker.id }}</h1>
+
+                    <h1><b>Length:</b> {{ linker.length }}</h1>
+
+                    <h1><b>Origin:</b>{{ linker.Source }}</h1>
+
+                    <h1><b>PDB ID:</b>{{ linker.pdb_id }}</h1>
+
+                    <h1><b>Flexibility:</b></h1>
+                    {% if linker.length >= 5 %}
+                        {% autoescape off %}
+                        {{ plot_dyna}}
+                        {% endautoescape %}
+                    {% else %}
+                        <h1>This linker is likely to be rigid due to its short length</h1>
+                    {% endif %}
+                    
+                    <h1 class="pt-5"><b>Hydrophobicity Data</b></h1>
+                    <p>GRAVY Score: {{ hydrophobicity_data.gravy_score }}</p>
+                    <div class="hydro-data" style="column-count: 2">
+                        {% if hydrophobicity_data %}
+                            <h1>Acidic</h1>
+                            <p>Very Hydrophobic: {{ hydrophobicity_data.acidic_very_hydrophobic }}</p>
+                            <p>Hydrophobic: {{ hydrophobicity_data.acidic_hydrophobic }}</p>
+                            <p>Moderate: {{ hydrophobicity_data.acidic_neutral }}</p>
+                            <p>Hydrophilic: {{ hydrophobicity_data.acidic_hydrophilic }}</p>
+                            <p>Hydrophobicity Distribution:</p>
+                            <img src="data:image/png;base64,{{ hydrophobicity_data.acidic_img_data }}" alt="Acidic Hydrophobicity Image">
+
+                            <h1>Neutral</h1>
+                            <p>Very Hydrophobic: {{ hydrophobicity_data.neutral_very_hydrophobic }}</p>
+                            <p>Hydrophobic: {{ hydrophobicity_data.neutral_hydrophobic }}</p>
+                            <p>Moderate: {{ hydrophobicity_data.neutral_neutral }}</p>
+                            <p>Hydrophilic: {{ hydrophobicity_data.neutral_hydrophilic }}</p>
+                            <p>Hydrophobicity Distribution:</p>
+                            <img src="data:image/png;base64,{{ hydrophobicity_data.neutral_img_data }}" alt="Neutral Hydrophobicity Image">
+                        {% else %}
+                            <p>No hydrophobicity data available.</p>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

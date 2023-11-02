@@ -1,0 +1,33 @@
+<!-- search_results.html -->
+<!-- Inherit contents of template-->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="masthead results-list bg-primary">
+    <!-- Linker Details Section-->
+    <div class="container">
+        <!-- Details Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase text-white">Search Results</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div>
+            <!-- Linker List Section Content-->
+            <div class="row">
+                <ul>
+                    {% for linker in selected_items %}
+                        <li>
+                            <a href="{% url 'Linker:linker_sequence' idurl=linker.id %}"> {{ linker.id }} </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

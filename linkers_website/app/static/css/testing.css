@@ -1,0 +1,357 @@
+/* 
+Note: This app uses two sources for the styling:
+    1. Styling from a premade bootstrap template (static/css/styling.css)
+    2. This style sheet that modifys the bootstrap template (static/theme/css/main.css)
+
+main.css uses the "!important" keyword to override fonts, colours, and other styling characteristics
+*/
+
+
+
+/* shift content so not hidden by nav bar*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Quicksand-Regular';
+}
+
+body {
+  width: 100vw !important;
+  overflow-x: hidden;
+  background-color: #07011B !important;
+}
+
+
+
+/* Quicksand-Regular */
+@font-face {
+    font-family: 'Quicksand-Regular';
+    src: url('https://static.igem.wiki/teams/4944/wiki/font/quicksand/quicksand-regular.ttf') format('truetype')
+}
+
+#main {
+    padding-top: calc(6rem + 74px);
+    background-color: #07011B !important;
+    color: white;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+@media (min-width: 992px) {
+    #main {
+      padding-top: calc(6rem + 104px);
+    }
+}
+
+
+/* bg colours */
+
+.bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: #07011B !important;
+}
+
+.bg-secondary {
+    --bs-bg-opacity: 1;
+    background-color: black !important;
+}
+
+.bg-alternate {
+    --bs-bg-opacity: 1;
+    background-color: #0c012d !important;
+}
+
+/* nav bar */
+
+.navbar{
+  border-bottom: 5px dotted white;
+}
+
+.nav-item{
+  background-color: #07011B !important;
+}
+
+.nav-link{
+  background-color: #0c012d !important;
+  color: #b9cde7 !important;
+  margin-top: 5px !important;
+}
+
+.navbar-brand{
+  color: #b9cde7 !important;
+}
+
+#lockicon{
+  height: 5vh;
+}
+
+.navbar-toggler {
+  color: #b9cde7 !important;
+  background-color: #0c012d !important;
+  font-weight: bold;
+  border: 2px solid white;
+}
+
+/* headings & text */
+
+.main-heading{
+  color: #b9cde7 !important;
+}
+
+.secondary-heading{
+  color: #fff !important;
+}
+
+.main-text{
+  color: white !important;
+}
+
+.secondary-text{
+  color: white !important;
+}
+
+/* Calculator Page */
+
+.container-calc {
+  padding-bottom: calc(6rem + 74px);
+}
+
+/* Education Page */
+
+.table-custom {
+  background-color: #c8d4ff; /* Light blue background color */
+  border: 10px solid #dee5ff; /* Thick lighter blue border */
+  border-radius: 15px !important;
+}
+
+.table-custom thead tr {
+  border: 10px solid #dee5ff; /* Thick lighter blue border */
+}
+
+.table-custom tbody tr {
+  border: 5px solid #dee5ff; /* Thick lighter blue border */
+}
+
+.table-custom th {
+  text-align: center; /* Center-align header text */
+  background-color: #bbcaff;
+  border: 10px solid #dee5ff;
+}
+
+.about-type {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.about-char {
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table-custom td {
+  border: 5px solid #dee5ff;
+  vertical-align: middle;
+}
+
+/* form elements */
+
+.submitbtn{
+  color: black !important;
+  background-color: #fff;
+}
+
+#submitButton{
+  color: black !important;
+  background-color: #fff;
+}
+
+label[for="sequence"] {
+  color: white;
+}
+
+/* contact page */
+
+.btndiv button {
+  color: #b9cde7 !important;
+  background-color: #0c012d !important;
+  border-color: white !important;
+  align-content: center;
+  margin-top: 5px;
+}
+
+.btndiv {
+  position: relative;
+}
+
+#sendbtn {
+  position: absolute;
+}
+
+.contact {
+  height: 130vh !important; 
+}
+
+/* Submit Page */
+label[for="id_form1-aasequence"] {
+  color: white;
+}
+
+label[for="id_form1-length"] {
+  color: white;
+}
+
+label[for="id_form1-pdb_id"] {
+  color: white;
+}
+
+label[for="id_form1-Source"] {
+  color: white;
+}
+
+label[for="id_form1-Reference"] {
+  color: white;
+}
+
+label[for="id_form2-type"] {
+  color: white;
+}
+
+/* Results Page */
+
+.results-list {
+  height: fit-content !important;
+}
+
+.results-list .container a {
+  color: white !important;
+  font-size: 1.2rem !important;
+}
+
+.results-list .container h1 {
+  color: white !important;
+  font-size: 1.4rem !important;
+}
+
+.results-list ul {
+  list-style: none; /* Remove the default bullet points */
+  padding-left: 0; /* Remove default left padding for the list */
+  column-count: 3; /* Set the number of columns you want */
+  column-gap: 20px; /* Add some space between the columns */
+}
+
+.results-list li {
+  padding-left: 20px; /* Add some left padding to create space for the custom bullet point */
+  margin-bottom: 10px; /* Add some spacing between list items */
+}
+
+.results-list li::before {
+  content: "\2022"; /* Unicode bullet character ● */
+  color: #b9cde7; /* Customize the color of the bullet point */
+  font-weight: bold; /* Optionally, make the bullet point bold */
+  margin-right: 10px; /* Add some space between the bullet point and the list item text */
+}
+
+/* Unvisited link style */
+.results-list a {
+  color: white !important;
+  font-size: 1.2rem !important;
+  text-decoration: none; /* Remove the underline */
+}
+
+/* Visited link style */
+.results-list a:visited {
+  color: #b9cde7  !important; /* Change the color of the link after it is visited */
+}
+
+
+
+
+/* footer */
+
+.footer{
+  background-color: black;
+  border-top: 5px dotted white;
+  position: absolute;
+  width: 100%;
+}
+
+/** ABOUT SECTION **/
+h3 {
+    color: #173357; /* Replace #FF0000 with your desired color code */
+}
+
+
+h2 {
+    color: #173357; /* Replace #FF0000 with your desired color code */
+  }
+
+/* this card is inspired form this - https://georgefrancis.dev/ */
+
+.card {
+    --border-radius: 0.75rem;
+    --primary-color: #7257fa;
+    --secondary-color: #3c3852;
+    
+    padding: 2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    background: #ffffff;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 3%);
+    border: none; 
+    position: relative;
+  }
+  
+  .card > * + * {
+    margin-top: 1.1em;
+  }
+  
+  .card .card__content {
+    color: var(--secondary-color);
+    font-size: 0.86rem;
+  }
+  
+  .card .card__title {
+    padding: 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  
+  .card .card__date {
+    color: #6e6b80;
+    font-size: 0.8rem;
+  }
+  
+  .card .card__arrow {
+    position: absolute;
+    background: var(--primary-color);
+    padding: 0.4rem;
+    border-top-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    bottom: 0;
+    right: 0;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card svg {
+    transition: 0.2s;
+  }
+  
+  /* hover */
+  .card:hover .card__title {
+    color: var(--primary-color);
+    text-decoration: underline;
+  }
+  
+  .card:hover .card__arrow {
+    background: #111;
+  }
+  
+  .card:hover .card__arrow svg {
+    transform: translateX(3px);
+  }
+

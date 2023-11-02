@@ -1,0 +1,122 @@
+<!-- Inherit contents of template-->
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+
+    .details {
+        height: fit-content !important;
+    }
+
+    .container h4 b {
+        color: #b9cde7 !important;
+        font-size: 1.4rem !important;
+    }
+
+    .container h4 {
+        color: white !important;
+        font-size: 1.4rem !important;
+    }
+
+    .container h1 {
+        color: white !important;
+        font-size: 1.4rem !important;
+    }
+
+    .container p {
+        color: white !important;
+        font-size: 1.2rem !important;
+    }
+
+    .container img {
+        width: fit-content !important;
+        max-width: 70% !important;
+    }
+
+</style>
+
+<body class="masthead">
+    <div class="container-calc">
+        <!-- Contact Section-->
+        <div class="container">
+            <!-- Contact Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase main-heading mb-0">Calculator</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Contact Section Form-->
+            <div class="row justify-content-center">
+                <div class="col-lg-12 col-xl-10">
+                    {% if success %}
+                    <div>
+                        <h4>Sequence: {{ context.sequence }}</h4>
+                        <h4>Average Flexibility: {{ context.flex.average }}</h4>
+                        {% if context.flex.average  <= 0.69 %}
+                            <h4>Type: Flexible </h4>
+                        {% elif context.flex.average >= 0.80 %}
+                            <h4>Type: Rigid </h4>
+                        {% else %}
+                            <h4>Type: context dependent (can be either rigid or flexible)</h4>
+                        {% endif %}
+                        <h4>Gravy Score: {{ context.gravy_score }}</h4>
+                        {% if context.length >= 5 %}
+                            {% autoescape off %}
+                            {{ context.plot }}
+                            {% endautoescape %}
+                        {% else %}
+                            <p>This linker is likely to be rigid</p>
+                        {% endif %}
+
+                        <h1 class="pt-5"><b>Hydrophobicity Data</b></h1>
+                        <p>GRAVY Score: {{ context.gravy_score }}</p>
+                        <div class="hydro-data" style="column-count: 2">
+                                <h1>Acidic</h1>
+                                <p>Very Hydrophobic: {{ context.acidic_hydro.Very_Hydrophobic }}</p>
+                                <p>Hydrophobic: {{ context.acidic_hydro.Hydrophobic }}</p>
+                                <p>Moderate: {{ context.acidic_hydro.Neutral }}</p>
+                                <p>Hydrophilic: {{ context.acidic_hydro.Hydrophilic }}</p>
+                                <p>Hydrophobicity Distribution:</p>
+                                <img src="data:image/png;base64,{{ context.acidic_graph }}" alt="Acidic Hydrophobicity Image">
+
+                                <h1>Neutral</h1>
+                                <p>Very Hydrophobic: {{ context.neutral_hydro.Very_Hydrophobic }}</p>
+                                <p>Hydrophobic: {{ context.neutral_hydro.Hydrophobic }}</p>
+                                <p>Moderate: {{ context.neutral_hydro.Neutral }}</p>
+                                <p>Hydrophilic: {{ context.neutral_hydro.Hydrophilic }}</p>
+                                <p>Hydrophobicity Distribution:</p>
+                                <img src="data:image/png;base64,{{ context.neu_hydro_graph }}" alt="Neutral Hydrophobicity Image">
+                        </div>
+                    </div>
+                    {% else %}
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- * * SB Forms Contact Form * *-->
+                    <!-- * * * * * * * * * * * * * * *-->
+                    <!-- This form is pre-integrated with SB Forms.-->
+                    <!-- To make this form functional, sign up at-->
+                    <!-- https://startbootstrap.com/solution/contact-forms-->
+                    <!-- to get an API token!-->
+                    <div class="container">
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN" novalidate="novalidate" method="post">
+                            {% csrf_token %}
+                            {% if form.sequence.errors %}
+                            <div class="alert alert-danger sequence-error">
+                                <strong>Error:</strong> {{ form.sequence.errors }}
+                            </div>
+                            {% endif %}
+                            {{ form.sequence.label_tag }}
+                            {{ form.sequence }}
+                            <div class="btndiv">
+                                <button class="btn btn-primary btn-xl" id="sendbtn" type="submit">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

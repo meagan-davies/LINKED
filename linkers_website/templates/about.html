@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <!-- other head content -->
+    <link rel="stylesheet" href="static/css/about.css">
+</head>
+
+<body class="masthead bg-primary">
+    
+    <!-- About Section-->
+    <div class="container">
+        <!-- About Section Heading-->
+        <h2 class="page-section-heading main-heading text-center text-uppercase">Fusion Protein Linkers</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div> 
+        </div>
+        <!-- About Section Content-->
+        <div class="row">
+            <!-- First column for the first paragraph -->
+            <div class="col-lg-12">
+                <p class="text-white text-center lead">
+                    Fusion proteins have been developed as a class of novel biomolecules with multi-functional properties. They may obtain many distinct functions from fusing two or more protein domains.
+                    Linkers are an indispensable component of recombinant fusion proteins, and they have shown increasing importance in the construction of stable, bioactive fusion proteins. The direct fusion of functional domains without a linker may lead to many undesirable outcomes, including misfolding or the fusion of proteins.
+                    Linkers may offer many advantages for the production of fusion proteins, such as improving biological activity, increasing expression yield, and achieving desirable pharmacokinetic profiles.
+                </p>
+            </div>
+        </div>
+        <div class="my-5"></div>
+        <div class="row">
+            <!-- First column for the two types of linkers -->
+            <div class="col-lg-6">
+                <h3 class="text-center secondary-heading">Natural Linkers</h3>
+                <p class="text-white text-center lead">
+                    They are derived from naturally-occurring multi-domain proteins from the Protein Data Bank, and can be considered as the foundation in linker design.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <h3 class="text-center secondary-heading">Empirical Linkers</h3>
+                <p class="text-white text-center lead">
+                    They are artificial linkers designed by researchers. They are gathered from literatures, paper, and patent search.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="my-5"></div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-section-heading main-heading text-center text-uppercase">Properties of Linkers</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div> 
+                </div>
+            </div>
+            <div class="my-3"></div>
+            <div class="col-lg-12">
+                <div class="card" >
+                    <div class="card-body">
+                      <h5 class="card-title">Length</h5>
+                      <p class="card-text">The lengths of linkers typically vary from 2 to 31 amino acids, optimized for each condition so that the linker does not impose any constraints on the conformation or interactions of the linked partners. Short linkers restrict movement and often stablize domain-domain interaction,  while longer ones offer more flexibility, affecting protein dynamics and folding. Linker length also determines the relative orientation of connected domains, influencing interactions and binding affinities. 
+                        Linker length is a critical design element for linker sequences, influencing their structure, function, and behaviour. It enables customization to achieve desired outcomes in protein design and molecular biology, affecting flexibility, spatial arrangement, accessibility, and overall protein function. </p>
+                    </div>
+                  </div>
+
+            </div>
+            <div class="my-3"></div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Hydrophobicity</h5>
+                      <p class="card-text">The hydrophobicity of a linker region is a pivotal factor in the design of linker proteins, shaping their function and behaviour. The desired interaction between proteins and the environment should be taken into consideration when determining the hydrophobicity of linker sequences. Typically, longer linkers are more hydrophilic, allowing more exposure and motion. Shorter linkers are usually more hydrophobic, limiting the flexibility between connected domains. Hydrophobic linkers might enhance the interaction between domains and their binding affinity, contributing to the overall stability of protein by promoting domain folding and minimising exposure to the aqueous environment. 
+                    </p>
+                    </div>
+                  </div> 
+
+            </div>
+            <div class="my-3"></div>
+            <div class="col-lg-12 pb-5">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Types of Linkers</h5>
+                      <div class="my-4"></div>
+                      <div class="container mt-4">
+                        <table class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Characteristics</th>
+                                    <th>Application</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="about-type">Flexible</td>
+                                    <td class="about-char">
+                                        <ul>
+                                            <li>Rich in small, polar or non-polar amino acids</li>
+                                            <li>Small size of amino acids provide flexibility, and allowsfor mobility of the connecting functional domains</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>Ideal for when certain movements or interactions are required for fusion protein domains</li>
+                                            <li>Serve as a passive linker to keep a distance between functional domains</li>
+                                            <li>Increase spatial separation</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="about-type">Rigid</td>
+                                    <td class="about-char">
+                                        <ul>
+                                            <li>Helical structure or rich in Pro</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>Ideal for maintaining separation distance between protein domains</li>
+                                            <li>Separate functional domains more efficiently than flexible linkers</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="about-type">Cleaveble</td>
+                                    <td class="about-char">
+                                        <ul>
+                                            <li>Reductive or enzymatic cleavage</li>
+                                            <li>Reduce steric hindrance and improve bioactivity</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>Ideal for releasing free functional domains in vivo, achieving independent actions/metabolism of individual domains of recombinant fusion proteins</li>
+                                            <li>Cleaved under specific conditions such as presence of reducing reagents or proteases</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+
+        <!--
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Length</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            
+            </div>
+        </div>
+        -->
+
+    </div>
+</body>
+{% endblock %}
+

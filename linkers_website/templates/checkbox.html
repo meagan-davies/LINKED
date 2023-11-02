@@ -1,0 +1,72 @@
+<!-- search_form.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Page</title>
+</head>
+<body>
+    <form method="POST" action="{% url 'testapps:r' %}" >
+        c
+
+        <div class="form-check">
+            <input type="checkbox" value="Apple" id="apple" name="fruits">
+            <label for="apple">Apple</label>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" value="Mango" id="mango" name="fruits">
+            <label for="mango">Mango</label>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" value="Orange" id="orange" name="fruits">
+            <label for="orange">Orange</label>
+        </div>
+          
+        <button type="submit">Submit</button>
+
+        
+    </form>
+
+    <hr/>
+    <form method="POST" action="{% url 'testapps:l' %}" >
+        {% csrf_token %}
+
+        <div class="form-check">
+            <input type="checkbox" value="Short" id="s" name="lengths">
+            <label for="s">Short (2-5 amino acids)</label>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" value="Medium" id="m" name="lengths">
+            <label for="m">Moderate (6-12 amino acids)</label>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" value="Long" id="l" name="lengths">
+            <label for="l">Long (>12 amino acids)</label>
+        </div>
+
+        <hr/>
+        <div class="form-check">
+            <input type="checkbox" value="Flexible" id="f" name="Flexibility">
+            <label for="s"> Flexible </label>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" value="Intermediate" id="I" name="Flexibility">
+            <label for="m"> Context Dependent (Can be either flexible or rigid)</label>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" value="Rigid" id="r" name="Flexibility">
+            <label for="l">Rigid</label>
+        </div>
+          
+        <button type="submit">Submit</button>
+
+        
+    </form>
+</body>
+</html>

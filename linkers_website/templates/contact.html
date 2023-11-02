@@ -1,0 +1,56 @@
+<!-- Inherit contents of template-->
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="masthead contact">
+    <!-- Contact Section-->
+    <div class="container">
+        <!-- Contact Section Heading-->
+        <h2 class="page-section-heading text-center text-uppercase main-heading mb-0">Contact Us</h2>
+        <!-- Icon Divider-->
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <!-- Contact Section Form-->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                {% if success %}
+                <div class="alert alert-success" role="alert">
+                    Your message was sent!
+                </div>
+                {% endif %}
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- * * SB Forms Contact Form * *-->
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- This form is pre-integrated with SB Forms.-->
+                <!-- To make this form functional, sign up at-->
+                <!-- https://startbootstrap.com/solution/contact-forms-->
+                <!-- to get an API token!-->
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN" novalidate="novalidate" method="post">
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ form.non_field_errors }}
+                    </div>
+                    {% endif %}
+                    {% for field in form %}
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        {{ field.label_tag }} <!-- Label tag for form -->
+                        {{ field }} <!-- Input -->
+                        {% for error in field.errors %}
+                        <p class="help-block text-danger">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="btndiv">
+                        <button class="btn btn-primary btn-xl" id="sendbtn" type="submit">Send</button>
+                    </div>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

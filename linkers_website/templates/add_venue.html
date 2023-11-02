@@ -1,0 +1,21 @@
+{% block content %}
+    <center>
+    <h1>Add Venue</h1>
+    <br/><br/>
+    {% if submitted %} <!--if submitted is true-->
+        <p>Your Venue was Submitted !!</p>
+
+    {% else %}
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
+        
+    {% endif %}
+    </center>
+    
+
+{% endblock %}

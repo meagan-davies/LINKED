@@ -1,0 +1,250 @@
+<section class="page-section bg-primary" id="Search">
+
+    <div class="container">
+
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0 main-heading">Search Database</h2>
+
+        <br/>
+
+        <center>
+            <div class=""><p class="lead masthead-subheading secondary-text">Select your desired properties of linker in the drop down menu or enter the ID</p></div>
+        </center>
+    
+    <!--search by ID-->
+    <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="{% url 'Linker:search_results_list' %}" method="get">
+        {% csrf_token %}
+            <!--<input type="text" name="query">-->
+        <div class="input-group pt-5">
+
+            <div class="input-group-prepend">
+
+                <span class="input-group-text">ID</span>
+
+            </div>
+
+            <textarea class="form-control" aria-label="With textarea" type="text" name="query"></textarea>
+
+            <div class="input-group-prepend">
+            <button type="submit" class="searchButton">Search</button>
+            </div>
+        </div>
+
+    </form>
+
+
+    <!--Search by Selection of Properties-->
+    <form method="POST" action="{% url 'Linker:search' %}" >
+    {% csrf_token %}
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8 col-xl-7">
+
+            <!-- Hydrophobicity -->
+            <div class="container p-5">
+
+                <div class="row justify-content-between">
+
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 my-1">
+
+                        <div class="btn-group d-flex justify-content-center">
+
+                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+
+                                Length
+
+                            </button>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                    <a  class="dropdown-item" >
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Short" id="s" name="lengths"/>
+                                            <label class="form-check-label" for="s">Short (2-5 amino acids) </label>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Medium" id="m" name="lengths"/>
+                                            <label class="form-check-label" for="Checkme2">Moderate (6-12 amino acids)</label>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Long" id="l" name="lengths"/>
+                                            <label class="form-check-label" for="Checkme3">Long (>=12 amino acids)</label>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 my-1">
+
+                        <div class="btn-group d-flex justify-content-center">
+
+                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                Hydrophobicity
+
+                            </button>
+
+ 
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Extremely Hydrophobic" id="Hydrophobicity" name="Hydrophobicity" />
+                                            <label class="form-check-label" for="Checkme1">Extremely Hydrophobic</label>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Hydrophobic" id="Hydrophobicity" name="Hydrophobicity"/>
+                                            <label class="form-check-label" for="Checkme2">Hydrophobic</label>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Moderate" id="Hydrophobicity" name="Hydrophobicity"/>
+                                            <label class="form-check-label" for="Checkme3">Moderate</label>
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Hydrophilic" id="Hydrophobicity" name="Hydrophobicity" />
+                                            <label class="form-check-label" for="Checkme4">Hydrophilic</label>
+                                        </div>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Extremely Hydrophilic" id="Hydrophobicity" name="Hydrophobicity" />
+                                            <label class="form-check-label" for="Checkme4">Extremely Hydrophilic</label>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 my-1">
+
+                        <div class="btn-group d-flex justify-content-center">
+
+                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                Flexibility
+
+                            </button>
+
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Flexible" id="f" name="Flexibility"/>
+                                            <label class="form-check-label" for="f">flexible</label>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Intermediate" id="I" name="Flexibility"/>
+                                            <label class="form-check-label" for="I">Context Dependent (can be either flexible or rigid)</label>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="Rigid" id="r" name="Flexibility"/>
+                                            <label class="form-check-label" for="r">Rigid</label>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    
+
+                </div>
+
+            </div>
+
+
+
+
+            <!-- Submit success message -->
+
+            <!---->
+
+            <!-- This is what your users will see when the form-->
+
+            <!-- has successfully submitted-->
+
+             <!-- <div class="d-none" id="submitSuccessMessage">
+
+                <div class="text-center mb-3">
+
+                    <div class="fw-bolder">Form submission successful!</div>
+
+                    To activate this form, sign up at
+
+                    <br />
+
+                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+
+                </div>
+
+            </div>
+
+            <!-- Submit error message-->
+
+            <!---->
+
+            <!-- This is what your users will see when there is-->
+
+            <!-- an error submitting the form-->
+
+            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+
+            <!-- Submit Button-->
+            <center>
+            <button class="btn btn-primary btn-xl" id="submitButton" type="submit" value="Search">Search</button>
+            </center>
+
+                       
+    </form>
+
+        </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+

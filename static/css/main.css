@@ -1,0 +1,117 @@
+/* 
+
+Note: This app uses two sources for the styling:
+    1. Styling from a premade bootstrap template (css/styles.css)
+    2. This style sheet that modifys the bootstrap template (main.css)
+
+main.css uses the "!important" keyword to override fonts, colours, and other styling characteristics
+
+*/
+
+
+
+/* shift content so not hidden by nav bar*/
+
+#main {
+    padding-top: calc(6rem + 74px);
+    color: red;
+  }
+
+@media (min-width: 992px) {
+    #main {
+      padding-top: calc(6rem + 104px);
+    }
+}
+
+
+/* bg colours */
+
+.bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: #7E7F9A !important;
+}
+
+.bg-alternate {
+    --bs-bg-opacity: 1;
+    background-color: #8b93a7 !important;
+}
+
+/* nav bar */
+
+.navbar{
+  background-color: #97A7B3 !important;
+  border-bottom: 5px dotted white;
+}
+
+.nav-item{
+  background-color: #97A7B3 !important;
+}
+
+.nav-link{
+  color: #CAE7B9 !important;
+}
+
+.navbar-brand{
+  color: #CAE7B9 !important;
+}
+
+#lockicon{
+  height: 5vh;
+}
+
+/* welcome section */
+
+.masthead{
+  height: 100vh;
+}
+
+/* headings & text */
+
+.main-heading{
+  color: #CAE7B9 !important;
+}
+
+.secondary-heading{
+  color: #fff !important;
+}
+
+.main-text{
+  color: #CAE7B9 !important;
+}
+
+.secondary-text{
+  color: #fff !important;
+}
+
+
+/* form elements */
+
+.submitbtn{
+  color: black !important;
+  background-color: #fff;
+}
+
+#submitButton{
+  color: black !important;
+  background-color: #fff;
+}
+
+/* contact page */
+.btndiv {
+  position: relative;
+}
+
+#sendbtn {
+  position: absolute;
+}
+
+.contact {
+  height: 130vh !important; 
+}
+
+/* footer */
+
+.footer{
+  background-color: #5c6784;
+}
+

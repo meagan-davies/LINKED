@@ -1,0 +1,13 @@
+Django==4.2.2
+psycopg2==2.8.4
+bleach==4.1.0
+django-extensions==3.2.3
+
+django-import-export==3.2.0
+plotly==5.15.0
+pandas==2.0.3
+requests==2.31.0
+matplotlib==3.7.2
+Pillow==10.0.0
+
+

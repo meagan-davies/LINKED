@@ -1,0 +1,28 @@
+{% load static %}
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top px-2" id="mainNav">
+    <div class="container">
+        {% url 'public:index' as index_url %}
+        <a class="navbar-brand" href="{{index_url}}">LINKED</a>
+        <img id="lockicon" src="../static/images/lock.png" alt="Lock">
+        <button class="navbar-toggler text-uppercase rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                {% url 'public:index' as index_url %}
+                <li class="nav-item mx-0 my-1 mx-lg-1"><a class="nav-link py-3 px-2 px-lg-3 rounded-3 {% if request.path == index_url %}active{% endif %}" href="{{index_url}}">Home</a></li>
+                {% url 'calculator:calculator' as calculator_url %}
+                <li class="nav-item mx-0 my-1 mx-lg-1"><a class="nav-link py-3 px-2 px-lg-3 rounded-3 {% if request.path == calculator_url %}active{% endif %}" href="{{calculator_url}}">Calculator</a></li>
+                {% url 'public:about' as about_url %}
+                <li class="nav-item mx-0 my-1 mx-lg-1"><a class="nav-link py-3 px-2 px-lg-3 rounded-3 {% if request.path == about_url %}active{% endif %}" href="{{about_url}}">About Linker</a></li>
+                {% url 'Linker:addlinker' as addlinker_url %}
+                <li class="nav-item mx-0 my-1 mx-lg-1"><a class="nav-link py-3 px-2 px-lg-3 rounded-3 {% if request.path == addlinker_url %}active{% endif %}" href="{{addlinker_url}}">Submit</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
